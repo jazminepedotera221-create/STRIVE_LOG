@@ -135,7 +135,7 @@ The system currently uses `ArrayList` to store violation records and complaints.
 
 ## Repository
 
-[STRIVE LOG – GitHub Repository](https://github.com/jazminepedotera221-create/STRIVE-LOG.git)
+[STRIVE LOG – GitHub Repository]([https://github.com/jazminepedotera221-create/STRIVE-LOG.git](https://github.com/jazminepedotera221-create/STRIVE_LOG.git))
 
 ---
 
