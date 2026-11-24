@@ -30,7 +30,7 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 | Violation Classification | Separates Minor and Major violation types. |
 | View Records | Displays recorded student violation details. |
 | Update Case Status | Allows Guidance Counselors to mark cases as Pending or Resolved. |
-| File a Complaint | Allows students to submit complaints. |
+| File a Request | Allows students to submit request. |
 | Account Settings | Displays account information and provides logout and exit options. |
 
 ## User Roles
