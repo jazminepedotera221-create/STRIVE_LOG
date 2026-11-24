@@ -25,13 +25,19 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 
 | Feature | Description |
 |---|---|
-| User Login | Provides access based on user roles. |
-| Add Violation | Records student information and incident details. |
-| Violation Classification | Separates Minor and Major violation types. |
-| View Records | Displays recorded student violation details. |
-| Update Case Status | Allows Guidance Counselors to mark cases as Pending or Resolved. |
-| File a Request | Allows students to submit request. |
-| Account Settings | Displays account information and provides logout and exit options. |
+| Welcome Screen | Displays the system introduction and Get Started button. |
+| User Selection | Allows users to select their account role. |
+| User Login | Validates user credentials based on the selected role. |
+| Add Violation | Records student information and violation details. |
+| Violation Classification | Classifies violations into Minor and Major categories. |
+| View All Records | Displays all recorded student violations. |
+| My Violation Records | Allows students to view their own violation history. |
+| Update Case Status | Allows Guidance Counselors to update violation statuses to Pending or Resolved. |
+| File a Request | Allows students to submit requests regarding their violations. |
+| View Student Requests | Allows Guidance Counselors to review submitted student requests. |
+| Account Information | Displays the logged-in user's name, ID, and role. |
+| Logout | Returns the user to the welcome screen. |
+| Exit Application | Provides an exit confirmation screen followed by a Thank You screen. |
 
 ## User Roles
 
