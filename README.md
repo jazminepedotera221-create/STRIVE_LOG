@@ -87,7 +87,7 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 ![STRIVE LOG Login Screen](images/login.png)
 
 ### Guidance Counselor Dashboard
-![STRIVE LOG Guidance Counselor Dashboard](images/guidance-dashboard.png)
+![STRIVE LOG Guidance Counselor Dashboard](images/Screenshot_2026-11-24_153210.webp)
 
 ### Add Violation Form
 ![STRIVE LOG Add Violation Form](images/add-violation.png)
