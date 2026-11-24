@@ -42,8 +42,10 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 ## User Roles
 
 1. **Student**
+   - Add student violation records.
    - View personal violation records.
-   - Submit complaints.
+   - Submit requests to the Guidance Counselor.
+   - View the status of their recorded violations.
 
 2. **School Staff**
    - Add student violations.
@@ -51,8 +53,9 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 
 3. **Guidance Counselor**
    - Add and view violation records.
+   - View all violation records.
    - Update case statuses.
-   - View student complaints.
+   - View student request.
 
 4. **Instructor**
    - Add student violations.
@@ -67,8 +70,8 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 
 ## Object-Oriented Programming Concepts
 
-- **Encapsulation** – Uses private fields and public getter methods to protect data.
-- **Inheritance** – Allows user subclasses to inherit common properties from the abstract `User` class.
+- **Encapsulation** – Uses private fields in the `User` and `Violation` classes and provides public getter methods to access their information. The violation status also has a setter method.
+- **Inheritance** – The `Student`, `Guidance Counselor`, `Instructor`, and `SchoolStaff` classes inherit common properties from the abstract `User` class.
 - **Abstraction** – Uses an abstract `User` class to define common user behavior.
 - **Polymorphism** – Uses method overriding to define the role of each user type.
 
@@ -123,7 +126,11 @@ java STRIVELOG
 
 ## Current Limitations
 
-The system currently uses `ArrayList` to store violation records and complaints. The data is temporary and will be lost when the program closes. Database integration and permanent data storage are not yet implemented.
+- The system uses `ArrayList` for temporary storage of violation records and student requests.
+- All stored records are lost when the application is closed.
+- Database integration and permanent data storage have not yet been implemented.
+- Student login currently checks the ID format and requires a non-empty password but does not verify actual student account credentials.
+- The application uses predefined sample credentials for Guidance Counselors, Instructors, and School Staff.
 
 ## Development Team
 
