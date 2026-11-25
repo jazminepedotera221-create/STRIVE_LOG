@@ -25,19 +25,27 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 
 | Feature | Description |
 |---|---|
-| User Login | Provides access based on user roles. |
-| Add Violation | Records student information and incident details. |
-| Violation Classification | Separates Minor and Major violation types. |
-| View Records | Displays recorded student violation details. |
-| Update Case Status | Allows Guidance Counselors to mark cases as Pending or Resolved. |
-| File a Complaint | Allows students to submit complaints. |
-| Account Settings | Displays account information and provides logout and exit options. |
+| Welcome Screen | Displays the system introduction and Get Started button. |
+| User Selection | Allows users to select their account role. |
+| User Login | Validates user credentials based on the selected role. |
+| Add Violation | Records student information and violation details. |
+| Violation Classification | Classifies violations into Minor and Major categories. |
+| View All Records | Displays all recorded student violations. |
+| My Violation Records | Allows students to view their own violation history. |
+| Update Case Status | Allows Guidance Counselors to update violation statuses to Pending or Resolved. |
+| File a Request | Allows students to submit requests regarding their violations. |
+| View Student Requests | Allows Guidance Counselors to review submitted student requests. |
+| Account Information | Displays the logged-in user's name, ID, and role. |
+| Logout | Returns the user to the welcome screen. |
+| Exit Application | Provides an exit confirmation screen followed by a Thank You screen. |
 
 ## User Roles
 
 1. **Student**
+   - Add student violation records.
    - View personal violation records.
-   - Submit complaints.
+   - Submit requests to the Guidance Counselor.
+   - View the status of their recorded violations.
 
 2. **School Staff**
    - Add student violations.
@@ -45,8 +53,9 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 
 3. **Guidance Counselor**
    - Add and view violation records.
+   - View all violation records.
    - Update case statuses.
-   - View student complaints.
+   - View student request.
 
 4. **Instructor**
    - Add student violations.
@@ -61,8 +70,8 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 
 ## Object-Oriented Programming Concepts
 
-- **Encapsulation** – Uses private fields and public getter methods to protect data.
-- **Inheritance** – Allows user subclasses to inherit common properties from the abstract `User` class.
+- **Encapsulation** – Uses private fields in the `User` and `Violation` classes and provides public getter methods to access their information. The violation status also has a setter method.
+- **Inheritance** – The `Student`, `Guidance Counselor`, `Instructor`, and `SchoolStaff` classes inherit common properties from the abstract `User` class.
 - **Abstraction** – Uses an abstract `User` class to define common user behavior.
 - **Polymorphism** – Uses method overriding to define the role of each user type.
 
@@ -78,10 +87,10 @@ The system has four user roles: Students, School Staff, Guidance Counselors, and
 ![STRIVE LOG Login Screen](images/login.png)
 
 ### Guidance Counselor Dashboard
-![STRIVE LOG Guidance Counselor Dashboard](images/guidance-dashboard.png)
+![STRIVE LOG Guidance Counselor Dashboard](images/Screenshot_2026-11-24_153210.webp)
 
 ### Add Violation Form
-![STRIVE LOG Add Violation Form](images/add-violation.png)
+![STRIVE LOG Add Violation Form](images/Screenshot_2026-11-24_155620.webp)
 
 ## How to Run
 
@@ -117,7 +126,11 @@ java STRIVELOG
 
 ## Current Limitations
 
-The system currently uses `ArrayList` to store violation records and complaints. The data is temporary and will be lost when the program closes. Database integration and permanent data storage are not yet implemented.
+- The system uses `ArrayList` for temporary storage of violation records and student requests.
+- All stored records are lost when the application is closed.
+- Database integration and permanent data storage have not yet been implemented.
+- Student login currently checks the ID format and requires a non-empty password but does not verify actual student account credentials.
+- The application uses predefined sample credentials for Guidance Counselors, Instructors, and School Staff.
 
 ## Development Team
 
@@ -135,7 +148,7 @@ The system currently uses `ArrayList` to store violation records and complaints.
 
 ## Repository
 
-[STRIVE LOG – GitHub Repository](https://github.com/jazminepedotera221-create/STRIVE-LOG.git)
+[STRIVE LOG – GitHub Repository](https://github.com/jazminepedotera221-create/STRIVE_LOG.git)
 
 ---
 

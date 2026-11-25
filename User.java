@@ -1,8 +1,9 @@
+
 public abstract class User {
 
-    private String id;
-    private String password;
-    private String name;
+    private final String id;
+    private final String password;
+    private final String name;
 
     public User(String id, String password, String name) {
         this.id = id;

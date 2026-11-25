@@ -4,6 +4,7 @@ public class GuidanceCounselor extends User {
         super(id, password, name);
     }
 
+    @Override
     public String getRole() {
         return "Guidance Counselor";
     }

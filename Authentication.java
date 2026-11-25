@@ -1,36 +1,33 @@
+
 public class Authentication {
 
-    public STRIVELOG.User authenticate(
-            String id, String password, String selectedRole) {
+        public User authenticate(
+                        final String id,
+                        final String password,
+                        final String role) {
 
-        if (selectedRole.equals("Guidance")
-                && id.equals("GC-1001")
-                && password.equals("1234")) {
+                if (id == null || password == null || role == null
+                                || id.trim().isEmpty() || password.isEmpty()) {
+                        return null;
+                }
 
-            return new STRIVELOG.GuidanceCounselor(
-                    id, password, "Guidance Counselor");
+                if (role.equals("Student") && id.startsWith("SR-")) {
+                        return new Student(id, password, "Student");
+                }
 
-        } else if (selectedRole.equals("Instructor")
-                && id.equals("INS-1001")
-                && password.equals("1234")) {
+                if (role.equals("Guidance Counselor") && id.startsWith("GC-")) {
+                        return new GuidanceCounselor(
+                                        id, password, "Guidance Counselor");
+                }
 
-            return new STRIVELOG.Instructor(
-                    id, password, "Instructor");
+                if (role.equals("Instructor") && id.startsWith("INS-")) {
+                        return new Instructor(id, password, "Instructor");
+                }
 
-        } else if (selectedRole.equals("Staff")
-                && id.equals("SS-1001")
-                && password.equals("1234")) {
+                if (role.equals("School Staff") && id.startsWith("SS-")) {
+                        return new SchoolStaff(id, password, "School Staff");
+                }
 
-            return new STRIVELOG.SchoolStaff(
-                    id, password, "School Staff");
-
-        } else if (selectedRole.equals("Student")
-                && id.startsWith("SR-")) {
-
-            return new STRIVELOG.Student(
-                    id, password, "Student");
+                return null;
         }
-
-        return null;
-    }
 }

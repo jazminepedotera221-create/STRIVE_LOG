@@ -4,6 +4,7 @@ public class Student extends User {
         super(id, password, name);
     }
 
+    @Override
     public String getRole() {
         return "Student";
     }

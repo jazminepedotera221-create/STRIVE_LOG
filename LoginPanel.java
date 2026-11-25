@@ -1,72 +1,65 @@
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class LoginPanel extends JPanel {
-    private JTextField loginId;
-    private JPasswordField loginPassword;
-    private JLabel loginRoleLabel;
+
+    private final JTextField idField;
+    private final JPasswordField passwordField;
+    private final JComboBox<String> roleBox;
+    private final Authentication authentication;
 
     public LoginPanel() {
+        authentication = new Authentication();
 
-        setLayout(new GridBagLayout());
-        setOpaque(false);
+        setLayout(new GridLayout(4, 2, 10, 10));
 
-        JPanel loginCard = new JPanel();
-        loginCard.setBackground(new Color(5, 12, 19, 245));
+        add(new JLabel("User ID:"));
+        idField = new JTextField();
+        add(idField);
 
-        loginCard.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(
-                        new Color(130, 35, 55), 1),
-                new EmptyBorder(15, 35, 20, 35)));
+        add(new JLabel("Password:"));
+        passwordField = new JPasswordField();
+        add(passwordField);
 
-        loginCard.setPreferredSize(new Dimension(460, 550));
-        loginCard.setLayout(new BoxLayout(loginCard, BoxLayout.Y_AXIS));
+        add(new JLabel("Role:"));
+        roleBox = new JComboBox<>(new String[] {
+                "Student",
+                "Guidance Counselor",
+                "Instructor",
+                "School Staff"
+        });
+        add(roleBox);
 
-        JLabel loginTitle = new JLabel("Log In");
-        loginTitle.setFont(new Font("Arial", Font.BOLD, 25));
-        loginTitle.setForeground(Color.WHITE);
-        loginTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton loginButton = new JButton("Login");
+        add(new JLabel());
+        add(loginButton);
 
-        JLabel description = new JLabel(
-                "Enter your credentials to continue");
-        description.setFont(new Font("Arial", Font.PLAIN, 13));
-        description.setForeground(Color.GRAY);
-        description.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        loginRoleLabel = new JLabel("Login as");
-        loginRoleLabel.setFont(new Font("Arial", Font.BOLD, 15));
-        loginRoleLabel.setForeground(new Color(220, 20, 60));
-        loginRoleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        loginId = new JTextField();
-        loginId.setMaximumSize(new Dimension(330, 45));
-
-        loginPassword = new JPasswordField();
-        loginPassword.setMaximumSize(new Dimension(330, 45));
-
-        loginCard.add(loginTitle);
-        loginCard.add(Box.createVerticalStrut(5));
-        loginCard.add(description);
-        loginCard.add(Box.createVerticalStrut(12));
-        loginCard.add(loginRoleLabel);
-        loginCard.add(Box.createVerticalStrut(18));
-        loginCard.add(loginId);
-        loginCard.add(Box.createVerticalStrut(12));
-        loginCard.add(loginPassword);
-
-        add(loginCard);
+        loginButton.addActionListener(e -> login());
     }
 
-    public String getLoginId() {
-        return loginId.getText();
-    }
+    private void login() {
+        String id = idField.getText().trim();
+        String password = new String(passwordField.getPassword());
+        String role = (String) roleBox.getSelectedItem();
 
-    public String getLoginPassword() {
-        return new String(loginPassword.getPassword());
-    }
+        if (id.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please enter your ID and password.");
+            return;
+        }
 
-    public void setRole(String role) {
-        loginRoleLabel.setText("Login as " + role);
+        User user = authentication.authenticate(id, password, role);
+
+        if (user != null) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Welcome, " + user.getName() + "!");
+        } else {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Invalid ID or role.");
+        }
     }
 }
